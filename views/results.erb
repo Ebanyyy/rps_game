@@ -4,10 +4,14 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>RESULT</title>
+	<link rel="stylesheet"  href="style.css">
+	<link rel="website icon" href="pis.png">
 </head>
 <body>
 	<h1>RESULT</h1>
-	<p>Your result: <%= @outcome %></p>
-	<a href="/" >Play again</a>
+	<p>Your score: <%= @player_score %>
+		Computer score: <%= @computer_score %>
+	</p>
+	<center><a href="/" >Play again</a></center>
 </body>
 </html>
