@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>ROCK PAPER SCISSOR</title>
+</head>
+<body>
+	<h1> Let's Play!</h1>
+	<p>Hello <%= @player_name %></p>
+	<p>Rock Paper Scissor:</p>
+	<form action="/results" method= "POST">
+		<input type="radio" name="choice" 
+		value= "Rock">Rock
+		<input type="radio" name="choice"
+		value= "Paper">Paper
+		<input type="radio" name="choice"
+		value= "Scissor">Scissor
+		<br>
+		<input type="submit" value="SUBMIT">
+
+</body>
+</html>
