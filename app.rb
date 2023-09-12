@@ -18,28 +18,26 @@ post '/results' do
 		@outcome = "Draw!"
 	else
 	 	case @computer_choice 
-		when @player_choice == "Rock"
-		    if @computer_choice == "Paper"
+		when "Rock"
+		    if @player_choice == "Paper"
+		        @outcome = "You Win"
+		    else
 		        @outcome = "You Lose"
 		    end
-		    if @computer_choice == "Scissors"
+		when "Paper"
+		    if @player_choice == "Scissors"
 		        @outcome = "You Win"
-		    end
-		when @player_choice == "Paper"
-		    if @computer_choice == "Scissors"
+		    else
 		        @outcome = "You Lose"
 		    end
-		    if @computer_choice == "Rock"
+		when "Scissors"
+		    if @player_choice == "Rock"
 		        @outcome = "You Win"
-		    end
-		when @player_choice == "Scissors"
-		    if @computer_choice == "Rock"
+		    else
 		        @outcome = "You Lose"
-		    end
-		    if @computer_choice == "Paper"
-		        @outcome = "You Win"
 		    end
 		end
 	end
+	puts @outcome
 	erb :results
 end
