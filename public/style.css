@@ -1,0 +1,29 @@
+html {
+	font: cursive;
+	text-align: center;
+	background-image: url("images.png");
+	background-size: cover;
+	color: black;
+	font-size: 50px;
+}
+
+
+p {
+
+	text-align: center;
+	color: #E2F1AF
+
+/*body {
+	font: cursive;
+	text-align: center;
+	background-image: url("images.jpeg");
+	color: black;
+}
+*/
+h1 {
+	text-align: center;
+}
+
+input {
+	color: #29524A;
+}
