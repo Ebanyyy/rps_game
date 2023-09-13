@@ -59,6 +59,13 @@ post '/results' do
 	if session[:results].length < session[:rounds]	
 		erb :play
 	else
+		counter_wl = session[:results].map { |hash| hash[:result] } #inside "[]" = take key
+		session[:win_count] = counter_wl.count("You Win")
+		session[:lose_count] = counter_wl.count("You Lose")
+		session[:draw_count] = counter_wl.count("Draw!")
+
+		puts counter_wl
+
 		erb :results
 	end
 end
