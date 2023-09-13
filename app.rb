@@ -1,4 +1,5 @@
 require 'sinatra'
+enable :sessions
 
 get '/' do 
 	erb :index
@@ -6,6 +7,12 @@ end
 
 post '/play' do 
 	@player_name = params[:name]
+	@rounds = params[:rounds].to_i
+
+	session[:name] = @player_name 
+	session[:rounds] = @rounds 
+	session[:results] = []
+
 	erb :play 
 end
 
@@ -13,6 +20,8 @@ post '/results' do
 	@player_name = params[:name]
 	@player_choice = params[:choice]
 	@computer_choice = ["Rock", "Paper", "Sciccors"].sample
+	@player_score = 0
+	@computer_score = 0 
 
 	if @player_choice == @computer_choice
 		@outcome = "Draw!"
@@ -21,23 +30,36 @@ post '/results' do
 		when "Rock"
 		    if @player_choice == "Paper"
 		        @outcome = "You Win"
+		        puts @player_score += 1
 		    else
 		        @outcome = "You Lose"
+		        puts @computer_score += 1
 		    end
 		when "Paper"
 		    if @player_choice == "Scissors"
 		        @outcome = "You Win"
+		        puts @player_score += 1
 		    else
 		        @outcome = "You Lose"
+		        puts @computer_score += 1
 		    end
 		when "Scissors"
 		    if @player_choice == "Rock"
 		        @outcome = "You Win"
+		        puts @player_score += 1
 		    else
 		        @outcome = "You Lose"
+		        puts @computer_score += 1
 		    end
 		end
 	end
-	puts @outcome
-	erb :results
+	history = { player: @player_choice, computer: @computer_choice, result: @outcome }
+	session[:results] << history
+	
+	if session[:results].length < session[:rounds]	
+		erb :play
+	else
+		erb :results
+	end
 end
+
