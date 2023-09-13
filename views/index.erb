@@ -2,16 +2,22 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Rock Paper Scissor Game</title>
+	<title></title>
 	<link rel="stylesheet"  href="style.css">
 	<link rel="website icon" href="pis.png">
 </head>
 <body>
-	<h1>Rock, Paper, Sciccors Game</h1>
-	<h3>Please enter your name</h3>
-	<form action='/play' method="post">
-		<input type="text" name="name">
-		<input type="submit" value="SUBMIT">
+	<h1>ROCK PAPER SCISSOR GAME</h1>
+	<form action= '/play' method= "post">
+		<label for ="name">Please enter your name:</label>
+		<input type= "text" name= "name">
+	</section>
+		<label for ="rounds">How many rounds?</label>
+		<input type= "text" name= "rounds" min= "1" max= "3" class= "form=control">
+	</section>
+	<p>
+		<input type= "submit" value= "SUBMIT" class= "btn btn-primary w-100" >
+	</section>
 	</form>
 </body>
 </html>

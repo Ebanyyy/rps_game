@@ -8,9 +8,13 @@
 	<link rel="website icon" href="pis.png">
 </head>
 <body>
-	<h1>RESULT</h1>
-	<p>Your score: <%= @player_score %>
-		Computer score: <%= @computer_score %>
+	<h1>RESULTS:</h1>
+	<% session[:results].each_with_index do |round, index| %>
+		<h2>Round <%= index + 1%></h2>
+		<p>Player choice: <%= round[:player] %></p>
+		<p>Computer's choice: <%= round[:computer] %></p>
+		<h4>Result: <%= round[:result] %></h4>
+	<% end %>
 	</p>
 	<center><a href="/" >Play again</a></center>
 </body>
