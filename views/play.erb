@@ -11,6 +11,8 @@
 	<h1> Let's Play!</h1>
 	<p>Hello <%= session[:name] %></p>
 	<p>You have <%= session[:rounds] %> rounds.</p>
+	<p>Round <%= session[:results].length + 1%> of <%= session[:rounds]%></p>
+	<p>You have <%= session[:rounds] %> rounds. </p>
 	<p>Your move:</p>
 	<form action="/results" method= "POST">
 		<input type="radio" name="choice" 

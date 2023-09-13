@@ -9,12 +9,15 @@
 </head>
 <body>
 	<h2>RESULTS:</h2>
-	<% session[:results].each_with_index do |round, index| %>
 		<h5>You Win: <%= session[:win_count] %></h5>
+		<h5>You Lose: <%= session[:lose_count] %></h5>
+		<h5>Draw: <%= session[:draw_count] %></h5>
+	<% session[:results].each_with_index do |round, index| %>
 		<h2>Round <%= index + 1%></h2>
 		<p>Player choice: <%= round[:player] %></p>
 		<p>Computer's choice: <%= round[:computer] %></p>
-		<h5>Result: <%= round[:result] %></h5>
+
+		
 	<% end %>
 	</p>
 	<center><a href="/" >Play again</a></center>
