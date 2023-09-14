@@ -6,7 +6,9 @@
 	<link rel="stylesheet"  href="style.css">
 	<link rel="website icon" href="pis.png">
 </head>
-<body>
+<body
+	class="homepage">
+	<br>
 	<h1>ROCK PAPER SCISSOR GAME</h1>
 	<form action= '/play' method= "post">
 	<section class="mb-3">
@@ -18,6 +20,12 @@
 	</section>
 	<p>
 		<input type= "submit" value= "SUBMIT" class= "btn btn-primary w-100" >
+	<p>LEADERBOARD</p>
+		<% session[:players].each_with_index do |(key, value), index|%>
+			<p>Player: <%= key["player_name"]%>: 
+			Total win: <%= key["win_count"]%></p>
+		<% end %>
+
 	</section>
 	</form>
 </body>

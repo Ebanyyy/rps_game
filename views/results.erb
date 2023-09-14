@@ -7,19 +7,18 @@
 	<link rel="stylesheet"  href="style.css">
 	<link rel="website icon" href="pis.png">
 </head>
-<body>
-	<h2>RESULTS:</h2>
-		<h5>You Win: <%= session[:win_count] %></h5>
-		<h5>You Lose: <%= session[:lose_count] %></h5>
-		<h5>Draw: <%= session[:draw_count] %></h5>
+<body
+	class = "result">
+	<h1>RESULTS:</h1>
+		<h4>You Win: <%= session[:win_count] %></h4>
+		<h4>You Lose: <%= session[:lose_count] %></h4>
+		<h4>Draw: <%= session[:draw_count] %></h4>
 	<% session[:results].each_with_index do |round, index| %>
 		<h2>Round <%= index + 1%></h2>
-		<p>Player choice: <%= round[:player] %></p>
-		<p>Computer's choice: <%= round[:computer] %></p>
-
-		
+		<h4>Player choice: <%= round[:player] %></h4>
+		<h4>Computer's choice: <%= round[:computer] %></h4>
 	<% end %>
-	</p>
-	<center><a href="/" >Play again</a></center>
+
+	<a class="button" href="/">Play again</a>
 </body>
 </html>
