@@ -2,6 +2,13 @@ require 'sinatra'
 enable :sessions
 
 get '/' do 
+	if session[:players] == nil
+	   session[:players] = []
+	else
+		session[:players] = session[:players]
+	end
+	puts session[:players]
+
 	erb :index
 end
 
@@ -65,6 +72,13 @@ post '/results' do
 		session[:draw_count] = counter_wl.count("Draw!")
 
 		puts counter_wl
+
+		win_scoreboard = {
+			"player_name" => session[:name],
+			"win_count" => session[:win_count]
+		}
+		puts win_scoreboard
+		session[:players].append(win_scoreboard)
 
 		erb :results
 	end
